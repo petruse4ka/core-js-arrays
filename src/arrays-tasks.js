@@ -22,7 +22,7 @@
  */
 function getIntervalArray(start, end) {
   const arrayLength = end - start + 1;
-  const array = Array.from({ length: arrayLength }, (v, i) => start + i);
+  const array = Array.from({ length: arrayLength }, (_, i) => start + i);
   return array;
 }
 
@@ -39,8 +39,11 @@ function getIntervalArray(start, end) {
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
-function sumArrays(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function sumArrays(arr1, arr2) {
+  const combinedArray = Array(Math.max(arr1.length, arr2.length))
+    .fill(0)
+    .map((_, index) => (arr1[index] || 0) + (arr2[index] || 0));
+  return combinedArray;
 }
 
 /**
@@ -55,8 +58,9 @@ function sumArrays(/* arr1, arr2 */) {
  *    findElement(['Array', 'Number', 'string'], 'Date') => -1
  *    findElement([0, 1, 2, 3, 4, 5], 5) => 5
  */
-function findElement(/* arr, value */) {
-  throw new Error('Not implemented');
+function findElement(arr, value) {
+  const index = arr.indexOf(value);
+  return index;
 }
 
 /**
@@ -73,8 +77,9 @@ function findElement(/* arr, value */) {
  *    findAllOccurrences([ null, undefined, null ], null) => 2
  *    findAllOccurrences([ true, 0, 1, 'true' ], true) => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  const count = arr.filter((value) => value === item).length;
+  return count;
 }
 
 /**
@@ -89,8 +94,9 @@ function findAllOccurrences(/* arr, item */) {
  *    removeFalsyValues([ 1, 2, 3, 4, 5, 'false' ]) => [ 1, 2, 3, 4, 5, 'false' ]
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  const result = arr.filter(Boolean);
+  return result;
 }
 
 /**
