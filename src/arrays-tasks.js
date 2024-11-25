@@ -22,7 +22,10 @@
  */
 function getIntervalArray(start, end) {
   const arrayLength = end - start + 1;
-  const array = Array.from({ length: arrayLength }, (_, i) => start + i);
+  const array = Array.from(
+    { length: arrayLength },
+    (_, index) => start + index
+  );
   return array;
 }
 
